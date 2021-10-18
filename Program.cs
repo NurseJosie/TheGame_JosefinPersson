@@ -2,11 +2,12 @@
 
 namespace TheGame_JosefinPersson
 {
-    class Program
+    class Program                        // TESTA CLASSDIAGRAM....?
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // anropa runnmeu
+
         }
     }
 }
