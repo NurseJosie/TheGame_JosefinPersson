@@ -8,7 +8,7 @@ namespace TheGame_JosefinPersson
 {
     class Boss // boss? stormonster?
     {
-        //constuctor???
+        //constructor.......?
 
             public string Name { get; set; } = "Boss";   // exakt varför get; set;??  behövs den överallt??  
             public int Level { get; set; } = 10;

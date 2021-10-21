@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace TheGame_JosefinPersson
 {
-    internal class Player   // behövs internal?
+    internal class Player   // behövs internal?  (från marcus exempel)
     {
-        //constuctor???
+        //constructor.....?
 
-        public string Name { get; set; } = "";   // exakt varför get; set;??  behövs den överallt??       INPUT FRÅN USER!!!
-        public int Level { get; set; } = 1;
-        public int Exp { get; set; } = 0;
-        public int Hp { get; set; } = 100;
-        public int Strenght { get; set; } = 10;
-        public int Defense { get; set; } = 10;
-        public int Gold { get; set; } = 0;
-        public string CatchPhrase { get; set; } = "Im the HEEROOO";
-        public string AttackPhrase { get; set; } = "I will save us!";
-        public string DeathPhrase { get; set; } = "Bye mama... ugh";
+        public string Name { get; set; } = "";   // exakt varför get; set;??  behövs den överallt??                        namn = INPUT FRÅN USER (tas från program.cs)
+        public int Level { get; set; } = 1; //startar på level 1
+        public int Exp { get; set; } = 0; //0 Exp
+        public int Hp { get; set; } = 100; //startar på 100 HP
+        public int Strenght { get; set; } = 10; //startar på 10
+        public int Defense { get; set; } = 10; //startar på 10
+        public int Gold { get; set; } = 0; //startar på 0
+        public string CatchPhrase { get; set; } = "Im the HEEROOO"; // för test................
+        public string AttackPhrase { get; set; } = "I will save us!"; // för test................
+        public string DeathPhrase { get; set; } = "Bye mama... ugh"; // för test................
         private bool IsDead { get; set; } = false;  // private enligt marcus exempel, varför???
 
         public void ShowStats()  // anropas via switch i huvudmenyn
@@ -31,8 +31,6 @@ namespace TheGame_JosefinPersson
             Console.WriteLine("Strenght: " + Strenght);
             Console.WriteLine("Defense:  " + Defense);
             Console.WriteLine("Gold:     " + Gold);
-
-            //properties uppdateras under spelets gång...
         }
 
         public void GetGold()
@@ -44,12 +42,12 @@ namespace TheGame_JosefinPersson
         public void BuyItem()  // ska ligga här eller i shoppen?
         {
             // köpa från shop med gold
-            // öka strenght eller defense, anges av item?
+            // öka strenght eller defense, anges av item
             //minus gold
         }
 
 
-        //metoder: attack(), gethit(),  givegold(), ......  ska kanske ligga i TheGame? gäller både monster och user
+        //metoder: attack(), gethit() ......  ska kanske ligga i TheGame? gäller både monster och user
 
    
     }

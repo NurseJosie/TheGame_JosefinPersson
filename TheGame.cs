@@ -9,13 +9,8 @@ namespace TheGame_JosefinPersson
     class TheGame
     {
         //--------------- vad av detta ska ligga här/ i menu/ i program.cs???
-        //starta  spelet-metod
-        //anropa player-metod
-        //game over-metod
-        //menumetod
+        //game over-metod....
         //---------------
-
-        // while-loop, stängs av via exit i huvudmenyn......
 
         // go adventure-metod, själva spelet!
         public void GoAdventuring()
@@ -40,9 +35,12 @@ namespace TheGame_JosefinPersson
 
 
                // public void Fight()
-                {
+                //{
+               // while(hero == isDead) {GAME OVER}
+               //while(boss/monster == isDead) {vinstmetod...? }
 
-                }
+                //}
+
                 //fight-metod: user anfall sedan monster anfall(attackens skada: random mellan styrka och styrka*2, skadan blir styrka - försvar. ),
                 //hp ner(beror på attackens skada), exp upp(beror på monstrets angivna exp som den ska släppa), monster släpper guld(RANDOM summa!), fraser...
 
@@ -51,10 +49,7 @@ namespace TheGame_JosefinPersson
 
                 // game over vid user hp 0, åter till startmenyn med ord. stats
                 // om level 10, du vinner hela äventyret
-
             }
         }
     }
-
-
 }
