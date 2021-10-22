@@ -14,10 +14,22 @@ namespace TheGame_JosefinPersson
             Player hero = new Player();
             hero.Name = userInputName;
 
+            //instansiera The Game
+            TheGame game = new TheGame();
+
+            //boss
+            Boss boss = new Boss();
+
+            
+
+            //mini monster
+            Monster miniMonster = new Monster();
 
             // anropa huvudmenyn
             Menu menu = new Menu(); // skapa en meny av Menu-klassen
-            menu.RunMenu(); 
+            menu.RunMenu(hero, game); 
+
+
 
         }
     }

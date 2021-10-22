@@ -20,7 +20,7 @@ namespace TheGame_JosefinPersson
         public string CatchPhrase { get; set; } = "Im the HEEROOO"; // för test................
         public string AttackPhrase { get; set; } = "I will save us!"; // för test................
         public string DeathPhrase { get; set; } = "Bye mama... ugh"; // för test................
-        private bool IsDead { get; set; } = false;  // private enligt marcus exempel, varför???
+        public bool IsDead { get; set; } = false;  // private enligt marcus exempel, varför???
 
         public void ShowStats()  // anropas via switch i huvudmenyn
         {
@@ -33,10 +33,10 @@ namespace TheGame_JosefinPersson
             Console.WriteLine("Gold:     " + Gold);
         }
 
-        public void GetGold()
+        public void TakeGold()
         {
-            // ta guld från monster
-            // behövs både getgold OCH takegold???
+            // ta guld från monster när monster.isdead = true
+            
         }
 
         public void BuyItem()  // ska ligga här eller i shoppen?
@@ -46,9 +46,14 @@ namespace TheGame_JosefinPersson
             //minus gold
         }
 
+        public void TakeExp()
+        {
+            // ta epx från monster när isdead = true
+        }
+
 
         //metoder: attack(), gethit() ......  ska kanske ligga i TheGame? gäller både monster och user
 
-   
+
     }
 }

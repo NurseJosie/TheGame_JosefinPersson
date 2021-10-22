@@ -10,18 +10,15 @@ namespace TheGame_JosefinPersson
     {
         //constuctor.....?
         
-        public void RunMenu()  //menumetoden, instansieras och anropas via programklassen
+        public void RunMenu(Player hero, TheGame game)  //menumetoden, instansieras och anropas via programklassen
         {
             bool runMenu = true;
             while (runMenu)
             {
-               // Console.Clear;      funkar ej...
                 Console.WriteLine("1 spela");
                 Console.WriteLine("2 show stats");
                 Console.WriteLine("3 shop");
                 Console.WriteLine("4 exit");
-
-
 
                                                                     //---------------// snyggare sätt med tryparse
                                                                     //int choice = 0;
@@ -30,6 +27,7 @@ namespace TheGame_JosefinPersson
 
                 //ta input
                 string userInputMenu = Console.ReadLine();
+               // Console.Clear;    //  funkar ej...
                 int menuInputInt = 0;
                 int.TryParse(userInputMenu, out menuInputInt);
 
@@ -42,10 +40,10 @@ namespace TheGame_JosefinPersson
                 switch (menuInputInt)
                 {
                     case 1:
-                        //...GoAdventuring();  //?
+                        game.GoAdventuring(hero); 
                         break;
                     case 2:
-                       // hero.ShowStats();   //?
+                       hero.ShowStats();  
                         break;
                     case 3:
                         //shop
