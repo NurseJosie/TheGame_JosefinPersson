@@ -13,9 +13,9 @@ namespace TheGame_JosefinPersson
         public string Name { get; set; } = "";   // exakt varför get; set;??  behövs den överallt??                        namn = INPUT FRÅN USER (tas från program.cs)
         public int Level { get; set; } = 1; //startar på level 1
         public int Exp { get; set; } = 0; //0 Exp
-        public int Hp { get; set; } = 10000; //startar på 100 HP
-        public int Strenght { get; set; } = 5; //startar på 10
-        public int Defense { get; set; } = 500; //startar på 10
+        public int Hp { get; set; } = 100; //startar på 100 HP
+        public int Strenght { get; set; } = 1; //startar på 10
+        public int Defense { get; set; } = 1; //startar på 10
         public int Gold { get; set; } = 0; //startar på 0
         public string CatchPhrase { get; set; } = "Im the HEEROOO"; // för test................
         public string AttackPhrase { get; set; } = "I will save us!"; // för test................
