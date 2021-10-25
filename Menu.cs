@@ -20,11 +20,6 @@ namespace TheGame_JosefinPersson
                 Console.WriteLine("3 shop");
                 Console.WriteLine("4 exit");
 
-                                                                    //---------------// snyggare sätt med tryparse
-                                                                    //int choice = 0;
-                                                                    //int.tryParse(Console.ReadLine(), out choice); 
-                                                                    //---------------
-
                 //ta input
                 string userInputMenu = Console.ReadLine();
                // Console.Clear;    //  funkar ej...
@@ -52,6 +47,7 @@ namespace TheGame_JosefinPersson
                         runMenu = false;
                         break;
                     default:
+                        Console.WriteLine("Enter a number between 1-4");
                         break;
                 }
             }

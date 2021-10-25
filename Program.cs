@@ -13,6 +13,7 @@ namespace TheGame_JosefinPersson
 
             Player hero = new Player();
             hero.Name = userInputName;
+            Console.WriteLine("Hello " + hero.Name + "! Let's begin our adventure..!");
 
             //instansiera The Game
             TheGame game = new TheGame();

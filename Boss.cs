@@ -26,6 +26,6 @@ namespace TheGame_JosefinPersson
             IsDead = isDead;
         }
 
-
+        // metoder: attack, gethit.......
     }
 }

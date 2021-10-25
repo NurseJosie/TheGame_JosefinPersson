@@ -8,13 +8,6 @@ namespace TheGame_JosefinPersson
 {
     class Monster    
     {
-       
-
-
-
-
-
-
         //constructor.......?
 
         public string Name { get; set; }   // exakt varför get; set;??  behövs den överallt??  
