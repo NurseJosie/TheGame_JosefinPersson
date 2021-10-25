@@ -28,7 +28,7 @@ namespace TheGame_JosefinPersson
         }
         public Monster(string name, int exp, int hp, int strenght, int defense, int gold, string catchPhrase, string attackPhrase, string deathPhrase, bool isDead)
         {
-            Name = name;
+            this.Name = name;               //   LÄGG TILL THIS. !!!!!!!
             Exp = exp;
             Hp = hp;
             Strenght = strenght;

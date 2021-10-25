@@ -48,13 +48,12 @@ namespace TheGame_JosefinPersson
         public void Fight(Player hero, Monster miniMonster, Monster mediumMonster, Boss boss)
         {
 
-            Random rnd = new Random();
-            int fightRnd = rnd.Next(10,21);
-
             Console.WriteLine("FIGHT!");
             //------------------------------------------------------------------------------------------------------------------
             if (hero.Level >= 8)
             {
+               
+
                 Console.WriteLine("Boss!!!");
                 //boss
 
@@ -67,6 +66,9 @@ namespace TheGame_JosefinPersson
 
                     if (hero.Hp > 0) // om hero LEVER
                     {
+                        Random rnd = new Random();
+                        int fightRnd = rnd.Next(10, 21);
+
                         Console.WriteLine("HERO attacks! monster hp before: " + boss.Hp);
                         boss.Hp -= ((hero.Strenght * (fightRnd / 10)) - boss.Defense);   // hero attack först
                         Console.WriteLine("monster hp after: " + boss.Hp);
@@ -95,6 +97,9 @@ namespace TheGame_JosefinPersson
                     if (boss.Hp > 0) // om monstret LEVER
                     {
                         // minimonster attack
+                        Random rnd = new Random();
+                        int fightRnd = rnd.Next(10, 21);
+
                         Console.WriteLine("MONSTER attacks! hero hp before: " + hero.Hp);
                         hero.Hp -= ((boss.Strenght * (fightRnd / 10)) - hero.Defense);
                         Console.WriteLine("hero hp after: " + hero.Hp);
@@ -113,6 +118,8 @@ namespace TheGame_JosefinPersson
             //----------------------------------------------------------------------------------------------------------------
             else if (hero.Level >= 4)
             {
+               
+
                 Console.WriteLine("medium strenght monster!!!");
                 // mediumMonster
 
@@ -124,6 +131,9 @@ namespace TheGame_JosefinPersson
 
                     if (hero.Hp > 0) // om hero LEVER
                     {
+                        Random rnd = new Random();
+                        int fightRnd = rnd.Next(10, 21);
+
                         Console.WriteLine("HERO attacks! monster hp before: " + mediumMonster.Hp);
                         mediumMonster.Hp -= ((hero.Strenght * (fightRnd / 10)) - mediumMonster.Defense);   // hero attack först
                         Console.WriteLine("monster hp after: " + mediumMonster.Hp);
@@ -152,6 +162,9 @@ namespace TheGame_JosefinPersson
                     if (mediumMonster.Hp > 0) // om monstret LEVER
                     {
                         // minimonster attack
+                        Random rnd = new Random();
+                        int fightRnd = rnd.Next(10, 21);
+
                         Console.WriteLine("MONSTER attacks! hero hp before: " + hero.Hp);
                         hero.Hp -= ((mediumMonster.Strenght * (fightRnd / 10)) - hero.Defense);
                         Console.WriteLine("hero hp after: " + hero.Hp);
@@ -169,6 +182,8 @@ namespace TheGame_JosefinPersson
       //----------------------------------------------------------------------------------------------------------------
             else
             {
+                
+
                 Console.WriteLine("Baby mini monster!!!");      // miniMonster
 
                 //mini monster
@@ -179,6 +194,9 @@ namespace TheGame_JosefinPersson
                        
                     if(hero.Hp > 0) // om hero LEVER
                     {
+                        Random rnd = new Random();
+                        int fightRnd = rnd.Next(10, 21);
+
                         Console.WriteLine("HERO attacks! monster hp before: " + miniMonster.Hp);
                         miniMonster.Hp -= ((hero.Strenght * fightRnd) - miniMonster.Defense);   // hero attack först
                         Console.WriteLine("monster hp after: " + miniMonster.Hp);
@@ -207,6 +225,9 @@ namespace TheGame_JosefinPersson
                     if (miniMonster.Hp > 0) // om monstret LEVER
                     {
                         // minimonster attack
+                        Random rnd = new Random();
+                        int fightRnd = rnd.Next(10, 21);
+
                         Console.WriteLine("MONSTER attacks! hero hp before: " + hero.Hp);
                         hero.Hp -= ((miniMonster.Strenght * fightRnd) - hero.Defense);
                         Console.WriteLine("hero hp after: " + hero.Hp);
