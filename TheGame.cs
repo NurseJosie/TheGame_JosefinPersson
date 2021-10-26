@@ -15,33 +15,50 @@ namespace TheGame_JosefinPersson
         public Monster miniMonster { get; set; }
 
         // go adventure-metod, själva spelet!
-        public void GoAdventuring(Player hero)
+        public void GoAdventuring(Player hero, Menu menu)
         {
-            Random rnd = new Random(); 
+            Console.WriteLine("...");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("....");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("....");
+            Thread.Sleep(1000);
+            Console.Clear();
+
+            Random rnd = new Random();
             int chance = rnd.Next(1, 101);
 
             if (chance < 10) // 9% chans att man bara hittar gräs....
             {
-                //gräs
-                Console.WriteLine("You only found grass!");
-            
-                Console.WriteLine("Press any key to continue...");
+                Console.WriteLine("There are no monsters here, only grass...");
+                Console.WriteLine("Press any key to continue");
                 Console.ReadKey();
             }
             else if (chance == 11)  //   1% chans
             {
-                // 100 HP!!!
-                Console.WriteLine("You found a HEALTH KIT!");              
+                Console.WriteLine("You found the MEGA RARE Health Berry!");
+                Console.WriteLine("Nam nam! You gained 100 HP...");
                 hero.Hp += 100;
+                Console.WriteLine("Your HP is now: " + hero.Hp);
             }
             else // 89% chans att man möter ett monster/boss
             {
-                //fight!!!
+                Console.WriteLine("RAAAAWR!");
+                Console.WriteLine("Oh no...!");
+                Console.WriteLine("You found a MONSTER, now you have to defeat it to survive!");
                 Fight(hero, miniMonster, mediumMonster, boss);
 
                 if(hero.Level == 10)
                 {
-                    Console.WriteLine("YOU WIN!!!!");
+                    Console.WriteLine("     ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                    Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                    Console.WriteLine("                               CONGRATUALTIONS, YOU WIN THE GAME!!!");
+                    Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                    Console.WriteLine("     ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                    Thread.Sleep(3000);
+                   // menu.RunMenu = false;
                 }
             }
         }
@@ -70,7 +87,7 @@ namespace TheGame_JosefinPersson
                         int fightRnd = rnd.Next(10, 21);
 
                         Console.WriteLine("HERO attacks! monster hp before: " + boss.Hp);
-                        boss.Hp -= ((hero.Strenght * (fightRnd / 10)) - boss.Defense);   // hero attack först
+                        boss.Hp -= ((hero.Strenght * fightRnd) - boss.Defense);   // hero attack först
                         Console.WriteLine("monster hp after: " + boss.Hp);
                         Thread.Sleep(1000);
 
@@ -87,7 +104,7 @@ namespace TheGame_JosefinPersson
                                 hero.Exp -= 100;
                                 hero.Strenght++;
                                 hero.Defense++;
-                                hero.Hp = 100;
+                                hero.Hp += 50;
                                 Console.WriteLine("updated stats: ");
                                 hero.ShowStats();
                             }
@@ -101,7 +118,7 @@ namespace TheGame_JosefinPersson
                         int fightRnd = rnd.Next(10, 21);
 
                         Console.WriteLine("MONSTER attacks! hero hp before: " + hero.Hp);
-                        hero.Hp -= ((boss.Strenght * (fightRnd / 10)) - hero.Defense);
+                        hero.Hp -= ((boss.Strenght * fightRnd) - hero.Defense);
                         Console.WriteLine("hero hp after: " + hero.Hp);
                         Thread.Sleep(1000);
 
@@ -135,7 +152,7 @@ namespace TheGame_JosefinPersson
                         int fightRnd = rnd.Next(10, 21);
 
                         Console.WriteLine("HERO attacks! monster hp before: " + mediumMonster.Hp);
-                        mediumMonster.Hp -= ((hero.Strenght * (fightRnd / 10)) - mediumMonster.Defense);   // hero attack först
+                        mediumMonster.Hp -= ((hero.Strenght * fightRnd) - mediumMonster.Defense);   // hero attack först
                         Console.WriteLine("monster hp after: " + mediumMonster.Hp);
                         Thread.Sleep(1000);
 
@@ -152,7 +169,7 @@ namespace TheGame_JosefinPersson
                                 hero.Exp = 0;
                                 hero.Strenght++;
                                 hero.Defense++;
-                                hero.Hp = 100;
+                                hero.Hp += 50;
                                 Console.WriteLine("updated stats: ");
                                 hero.ShowStats();
                             }
@@ -166,7 +183,7 @@ namespace TheGame_JosefinPersson
                         int fightRnd = rnd.Next(10, 21);
 
                         Console.WriteLine("MONSTER attacks! hero hp before: " + hero.Hp);
-                        hero.Hp -= ((mediumMonster.Strenght * (fightRnd / 10)) - hero.Defense);
+                        hero.Hp -= ((mediumMonster.Strenght * fightRnd) - hero.Defense);
                         Console.WriteLine("hero hp after: " + hero.Hp);
                         Thread.Sleep(1000);
 
@@ -215,7 +232,7 @@ namespace TheGame_JosefinPersson
                                 hero.Exp = 0;
                                 hero.Strenght++;
                                 hero.Defense++;
-                                hero.Hp = 100;
+                                hero.Hp += 50;
                                 Console.WriteLine("updated stats: ");
                                 hero.ShowStats();
                             }

@@ -8,21 +8,69 @@ namespace TheGame_JosefinPersson
 {
     class Shop
     {
-        //visa antal guld
-        //visa nuvarande: liv, styrka, försvar, ( exp xx(level x) )
-        //shop-meny: 1 visa styrkeamulett, 2 visa försvarsamulett,  3 visa health kit, 4 åter till huvudmenyn
+        public void RunShopMenu(Player hero, TheGame game)  //menumetoden, instansieras och anropas via programklassen
+        {
+            bool runShopMenu = true;
+            while (runShopMenu)
+            {
+                Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                Console.WriteLine("                                            Welcome to the Shop!");
+                Console.WriteLine("");
+                Console.WriteLine("                                           Your gold: " + hero.Gold);
+                Console.WriteLine("1) Show stats");
+                Console.WriteLine("2) Buy 100 Health points. Cost - 200 gold");
+                Console.WriteLine("3) Buy Strength, will add one point. Cost - 300 gold");
+                Console.WriteLine("4) Buy Defense, will add one point. Cost - 300 gold");
+                Console.WriteLine("5) Exit the Shop and return to the Main Menu");
+                Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
 
-        // input med tryparse för att välja alternativ
-        //switcha alternativ
+                //ta input
+                string userInputShopMenu = Console.ReadLine();
+                // Console.Clear;    //  funkar ej...
+                int shopInputInt = 0;
+                int.TryParse(userInputShopMenu, out shopInputInt);
 
-        //1 visa styrkeamulett(ökar skadan),
-        //2 försvartamulett(minskar skadan du tar),
-        //3 health kit(ger plus HP)
-        //4 åter till huvudmenyn
+                if (shopInputInt > 5 || shopInputInt < 0)
+                {
+                    Console.WriteLine("1-5");
+                    Console.ReadKey();          // eller console.readline?
+                }
 
-        //köpa: minus guld, plus stats
-
-        //åter till shopmenyn
-        
+                switch (shopInputInt)
+                {
+                    case 1:
+                        Console.Clear();
+                        hero.ShowStats();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("You bought 100 Health Points!");
+                        hero.Hp += 100;
+                        hero.Gold -= 200;
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("You bought extra Strength! You feel your power rise!!!");
+                        hero.Strenght++;
+                        hero.Gold -= 300;
+                        break;
+                    case 4:
+                        Console.Clear();
+                        Console.WriteLine("You bought extra Defense! You're on your way to be INVINCIBLE!!!");
+                        hero.Defense++;
+                        hero.Gold -= 300;
+                        break;
+                    case 5:
+                        Console.Clear();
+                        runShopMenu = false;
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Enter a number between 1-5");
+                        break;
+                }
+            }
+        }
     }
 }
+

@@ -14,16 +14,16 @@ namespace TheGame_JosefinPersson
         }
         public Boss(string name, int exp, int hp, int strenght, int defense, int gold, string catchPhrase, string attackPhrase, string deathPhrase, bool isDead)
         {
-            Name = name;
-            Exp = exp;
-            Hp = hp;
-            Strenght = strenght;
-            Defense = defense;
-            Gold = gold;
-            CatchPhrase = catchPhrase;
-            AttackPhrase = attackPhrase;
-            DeathPhrase = deathPhrase;
-            IsDead = isDead;
+            this.Name = name;
+            this.Exp = exp;
+            this.Hp = hp;
+            this.Strenght = strenght;
+            this.Defense = defense;
+            this.Gold = gold;
+            this.CatchPhrase = catchPhrase;
+            this.AttackPhrase = attackPhrase;
+            this.DeathPhrase = deathPhrase;
+            this.IsDead = isDead;
         }
 
         // metoder: attack, gethit.......

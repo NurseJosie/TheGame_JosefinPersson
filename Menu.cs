@@ -10,15 +10,17 @@ namespace TheGame_JosefinPersson
     {
         //constuctor.....?
         
-        public void RunMenu(Player hero, TheGame game)  //menumetoden, instansieras och anropas via programklassen
+        public void RunMenu(Player hero, TheGame game, Shop shop, Menu menu)  //menumetoden, instansieras och anropas via programklassen
         {
             bool runMenu = true;
             while (runMenu)
             {
-                Console.WriteLine("1 spela");
-                Console.WriteLine("2 show stats");
-                Console.WriteLine("3 shop");
-                Console.WriteLine("4 exit");
+                Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                Console.WriteLine("1) Go adventuring!");
+                Console.WriteLine("2) Show stats");
+                Console.WriteLine("3) Go shopping");
+                Console.WriteLine("4) Exit The Game");
+                Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
 
                 //ta input
                 string userInputMenu = Console.ReadLine();
@@ -35,16 +37,20 @@ namespace TheGame_JosefinPersson
                 switch (menuInputInt)
                 {
                     case 1:
-                        game.GoAdventuring(hero); 
+                        Console.Clear();
+                        game.GoAdventuring(hero, menu); 
                         break;
                     case 2:
+                        Console.Clear();
                        hero.ShowStats();  
                         break;
                     case 3:
-                        //shop
+                        Console.Clear();
+                        shop.RunShopMenu(hero, game);
                         break;
                     case 4:
                         runMenu = false;
+                        // runShopMenu = false;    så att hela spelet avslutas ....
                         break;
                     default:
                         Console.WriteLine("Enter a number between 1-4");
