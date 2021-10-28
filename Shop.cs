@@ -26,14 +26,14 @@ namespace TheGame_JosefinPersson
 
                 //ta input
                 string userInputShopMenu = Console.ReadLine();
-                // Console.Clear;    //  funkar ej...
+                                                                                                                                                                                        // Console.Clear;    //  funkar ej...
                 int shopInputInt = 0;
                 int.TryParse(userInputShopMenu, out shopInputInt);
 
                 if (shopInputInt > 5 || shopInputInt < 0)
                 {
                     Console.WriteLine("1-5");
-                    Console.ReadKey();          // eller console.readline?
+                    Console.ReadKey();                                                                                                                                                      // eller console.readline?
                 }
 
                 switch (shopInputInt)

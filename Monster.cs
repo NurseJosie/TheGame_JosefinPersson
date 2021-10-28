@@ -8,9 +8,9 @@ namespace TheGame_JosefinPersson
 {
     class Monster    
     {
-        //constructor.......?
+                                                                                                                                                                                                     //constructor.......?
 
-        public string Name { get; set; }   // exakt varför get; set;??  behövs den överallt??  
+        public string Name { get; set; }                                                                                                                                                    // exakt varför get; set;??  behövs den överallt??  
         public int Exp { get; set; }
         public int Hp { get; set; }
         public int Strenght { get; set; }
@@ -19,16 +19,16 @@ namespace TheGame_JosefinPersson
         public string CatchPhrase { get; set; }
         public string AttackPhrase { get; set; }
         public string DeathPhrase { get; set; }
-        public bool IsDead { get; set; } // private enligt marcus exempel, varför???
+        public bool IsDead { get; set; }                                                                                                                                                    // private enligt marcus exempel, varför???
 
 
         public Monster()
         {
-            //tom constructor
+                                              //tom constructor
         }
         public Monster(string name, int exp, int hp, int strenght, int defense, int gold, string catchPhrase, string attackPhrase, string deathPhrase, bool isDead)
         {
-            this.Name = name;               //   LÄGG TILL THIS. !!!!!!!
+            this.Name = name;                                                                                                                                             //   LÄGG TILL THIS. !!!!!!!
             this.Exp = exp;
             this.Hp = hp;
             this.Strenght = strenght;
@@ -42,7 +42,7 @@ namespace TheGame_JosefinPersson
 
 
 
-        //metoder: attack(), gethit(),          ska kanske ligga i TheGame? gäller både monster och user
+                                                                                                                                                             //metoder: attack(), gethit(),          ska kanske ligga i TheGame? gäller både monster och user
     }
 }
 

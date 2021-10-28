@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TheGame_JosefinPersson
 {
-    class Boss : Monster   // ärvd klass,  varför behöver jag constructor i ärvd klass????!
+    class Boss : Monster                                                                                                                                                            // ärvd klass,  varför behöver jag constructor i ärvd klass????!
     {
         public Boss()
         {
-            //tom constructor
+                                                                  //tom constructor
         }
         public Boss(string name, int exp, int hp, int strenght, int defense, int gold, string catchPhrase, string attackPhrase, string deathPhrase, bool isDead)
         {
@@ -26,6 +26,6 @@ namespace TheGame_JosefinPersson
             this.IsDead = isDead;
         }
 
-        // metoder: attack, gethit.......
+                                                                                                                                                                                          // metoder: attack, gethit.......
     }
 }

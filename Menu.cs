@@ -8,9 +8,9 @@ namespace TheGame_JosefinPersson
 {
     class Menu
     {
-        //constuctor.....?
+                                                                                                                                                                                                  //constuctor.....?
         
-        public void RunMenu(Player hero, TheGame game, Shop shop, Menu menu)  //menumetoden, instansieras och anropas via programklassen
+        public void RunMenu(Player hero, TheGame game, Shop shop)  //menumetoden, instansieras och anropas via programklassen
         {
             bool runMenu = true;
             while (runMenu)
@@ -24,21 +24,21 @@ namespace TheGame_JosefinPersson
 
                 //ta input
                 string userInputMenu = Console.ReadLine();
-               // Console.Clear;    //  funkar ej...
+                                                                                                                                                                                           // Console.Clear;    //  funkar ej...
                 int menuInputInt = 0;
                 int.TryParse(userInputMenu, out menuInputInt);
 
                 if (menuInputInt > 4 || menuInputInt < 0)
                 {
                     Console.WriteLine("1-4");
-                    Console.ReadKey();          // eller console.readline?
+                    Console.ReadKey();                                                                                                                                                         // eller console.readline?
                 }
 
                 switch (menuInputInt)
                 {
                     case 1:
                         Console.Clear();
-                        game.GoAdventuring(hero, menu); 
+                        game.GoAdventuring(hero); 
                         break;
                     case 2:
                         Console.Clear();
@@ -50,7 +50,7 @@ namespace TheGame_JosefinPersson
                         break;
                     case 4:
                         runMenu = false;
-                        // runShopMenu = false;    så att hela spelet avslutas ....
+                                                                                                                                                                                         // runShopMenu = false;    så att hela spelet avslutas ....
                         break;
                     default:
                         Console.WriteLine("Enter a number between 1-4");

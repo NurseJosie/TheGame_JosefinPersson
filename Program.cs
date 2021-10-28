@@ -7,8 +7,6 @@ namespace TheGame_JosefinPersson
     {
         static void Main(string[] args)
         {
-
-            //skapa spelarobjekt i början av spelet, fråga efter spelarens namn.
             Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
             Console.WriteLine("                                              Welcome to THE GAME!");
             Thread.Sleep(2000);
@@ -23,8 +21,8 @@ namespace TheGame_JosefinPersson
             Console.WriteLine("");
             Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
 
-            string userInputName = Console.ReadLine();  // behöver man kolla att det är ett namn...?
-
+            string userInputName = Console.ReadLine();                                                                                                                    // behöver man kolla att det är ett namn...?
+            //skapa spelarobjekt i början av spelet, fråga efter spelarens namn.
             Player hero = new Player();
             hero.Name = userInputName;
             Console.WriteLine("                                           Nice to meet you " + hero.Name + "!");
@@ -43,8 +41,6 @@ namespace TheGame_JosefinPersson
             menu.RunMenu(hero, game, shop);
 
             shop.RunShopMenu(hero, game);
-
-
         }
     }
 }
