@@ -1,79 +1,77 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;          // sleep...
+using System.Threading;    // Thread.Sleep();
 
 namespace TheGame_JosefinPersson
 {
     class TheGame
     {
         // deklarerar att det ska finnas 3 olika monster i the game
-        public Boss boss { get; set; }                                                                                                                                                              // nödvändigt med get; set; ???
+        public Boss boss { get; set; }                                                                                                                                                             
         public Monster mediumMonster { get; set; }
         public Monster miniMonster { get; set; }
 
-        // go adventure-metod, själva spelet!
         public void GoAdventuring(Player hero)
         {
             Console.WriteLine("...");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Console.WriteLine("....");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Console.WriteLine(".....");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
 
             Random rnd = new Random();
             int chance = rnd.Next(1, 101);
 
-            if (chance < 10) // 9% chans att man bara hittar gräs....
+            if (chance < 10) // hittar gräs
             {
                 Console.WriteLine("There are no monsters here, only grass...");
                 Console.WriteLine("Press any key to continue");
                 Console.ReadKey();
             }
-            else if (chance == 11)  //   1% chans
+            else if (chance == 11)  // ökar HP
             {
                 Console.WriteLine("You found the MEGA RARE Health Berry!");
                 Console.WriteLine("Nam nam! You gained 100 HP...");
                 hero.Hp += 100;
                 Console.WriteLine("Your HP is now: " + hero.Hp);
             }
-            else // 89% chans att man möter ett monster/boss
+            else // möter monster
             {
                 Console.WriteLine("RAAAAWR!");
-                Console.WriteLine("Oh no...!");
+                Console.WriteLine("Oh...!");
                 Console.WriteLine("You found a MONSTER, now you have to defeat it to survive!");
-                
+                Thread.Sleep(3000);
+
                 if (hero.Level >= 8)
                 {
-                    Fight(Player hero, Boss boss);
+                    Console.WriteLine("BOSS TIME! A huge monster with fangs and bat wings stands before you... Goood luck!");
+                    Thread.Sleep(3000);
 
-                    Console.WriteLine("Boss!!!");
-                   
-                    boss = new Boss("Boss", 100, 200, 13, 12, 500, "rawr", "imma kill u", "Farewell cruel world", false);
+                    boss = new Boss(100, 200, 13, 12, 500, "Mohaha! I will DESTROY you!!!", "Farewell cruel world...uuuughh...");
+
+                    Fight(hero, boss);
                 }
-                else if (hero.Level >= 4) 
+                else if (hero.Level >= 4)
                 {
-                    Fight(Player hero, Monster mediumMonster);
+                    Console.WriteLine("A monster of terror stands before you, it's holding a weapon made of HUMAN BONES...!");
+                    Thread.Sleep(3000);
 
-                    Console.WriteLine("medium strenght monster!!!");
+                    mediumMonster = new Monster(80, 100, 10, 8, 300, "Rawr! Ready to meet your maker?", "UGH, ouch! It hurts to die...");
 
-                    mediumMonster = new Monster("Hugo", 80, 100, 10, 8, 300, "Mjau", "Attaaaack", "Im dead", false);
+                    Fight(hero, mediumMonster);
                 }
                 else
                 {
+                    Console.WriteLine("...Hello, I'm down here...!");
+                    Console.WriteLine("Naaw, a tiny baby mini monster has come to say hello! Or is it here to KILL you...?!");
+                    Thread.Sleep(3000);
 
-                    miniMonster = new Monster("MiniBaby", 60, 80, 6, 4, 200, "Hi!", "Wanna play?", "*cries*", false);      // skapar ett nytt minimonster vid varje match... för att återställa hp m.m.
+                    miniMonster = new Monster(60, 80, 6, 4, 200, "Wanna play with me?", "My mama will hunt you down... *cries*");
 
-                    Fight(Player hero, Monster miniMonster);
-
-                    Console.WriteLine("Baby mini monster!!!");   
-
+                    Fight(hero, miniMonster);
                 }
 
                 if (hero.Level == 10)
@@ -84,70 +82,94 @@ namespace TheGame_JosefinPersson
                     Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
                     Console.WriteLine("     ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
                     Thread.Sleep(3000);
-                                                                                                                                                                                             // menu.RunMenu = false;
                 }
             }
         }
 
-    public void Fight(hero, monster) {           // hur får jag in monster ELLER boss....?
-
-        while (monster.Hp > 0 && hero.Hp > 0) // om BÅDE hero och monster LEVER
+        public void Fight(Player hero, Monster monster)
         {
-
-            if (hero.Hp > 0) // om hero LEVER
+            while (monster.Hp > 0 && hero.Hp > 0) // om BÅDE hero och monster LEVER
             {
-                Random rnd = new Random();
-                int fightRnd = rnd.Next(10, 21);
 
-                Console.WriteLine("HERO attacks! monster hp before: " + monster.Hp);
-                monster.Hp -= ((hero.Strenght * fightRnd) - monster.Defense);   // hero attack först
-                Console.WriteLine("monster hp after: " + monster.Hp);
-                Thread.Sleep(1000);
-
-                if (monster.Hp <= 0) // om monstret DÖR
+                if (hero.Hp > 0) // om hero lever, hero attaack
                 {
-                    Console.WriteLine("YOU SLAYED THE MONSTER!");
-                    hero.Exp += monster.Exp;
-                    hero.Gold += monster.Gold;
-                    Console.WriteLine("gold: " + hero.Gold + " exp: " + hero.Exp + " /100");
-                    if (hero.Exp >= 100) // LEVEL UP
+                    Random rnd = new Random();
+                    int fightRnd = rnd.Next(10, 21);
+
+                    Console.WriteLine("Hero HP: " + hero.Hp + " Monster HP: " + monster.Hp);
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Hero attacks...");
+                    Console.WriteLine(hero.AttackPhrase);
+                    Thread.Sleep(3000);
+                    monster.Hp -= ((hero.Strength * fightRnd) - monster.Defense);   
+                    if (monster.Hp < 0)
                     {
-                        hero.Level++;
-                        Console.WriteLine("Level up!");
-                        hero.Exp = 0;
-                        hero.Strenght++;
-                        hero.Defense++;
-                        hero.Hp += 50;
-                        Console.WriteLine("updated stats: ");
-                        hero.ShowStats();
+                        monster.Hp = 0;
+                    }
+                    Console.WriteLine("Monster HP goes down to " + monster.Hp);
+                    Thread.Sleep(2000);
+
+                    if (monster.Hp <= 0) // om monstret dör
+                    {
+                        Console.WriteLine(monster.DeathPhrase);
+                        Thread.Sleep(3000);
+                        Console.WriteLine("YOU SLAYED THE MONSTER! You gained " + monster.Gold + " Gold and " + monster.Exp + " Exp!");
+                        hero.Exp += monster.Exp;
+                        hero.Gold += monster.Gold;
+                        Console.WriteLine("HP: " + hero.Hp + " Gold: " + hero.Gold + " Exp: " + hero.Exp + " /100");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+
+                        if (hero.Exp >= 100) // LEVEL UP
+                        {
+                            Console.Clear();
+                            hero.Level++;
+                            Console.WriteLine("Level up!");
+                            hero.Exp = 0;
+                            hero.Strength++;
+                            hero.Defense++;
+                            hero.Hp += 50;
+                            Thread.Sleep(2000);
+                            Console.WriteLine("Updated stats:");
+                            hero.ShowStats();
+                            Thread.Sleep(3000);
+                            Console.WriteLine("Press any key to continue...");
+                            Console.ReadKey();
+                        }
                     }
                 }
-            }
 
-            if (monster.Hp > 0) // om monstret LEVER
-            {
-                // minimonster attack
-                Random rnd = new Random();
-                int fightRnd = rnd.Next(10, 21);
-
-                Console.WriteLine("MONSTER attacks! hero hp before: " + hero.Hp);
-                hero.Hp -= ((monster.Strenght * fightRnd) - hero.Defense);
-                Console.WriteLine("hero hp after: " + hero.Hp);
-                Thread.Sleep(1000);
-
-                if (hero.Hp <= 0) // om hero DÖR
+                if (monster.Hp > 0) // om monstret lever, monster attack
                 {
-                    Console.WriteLine("game over");
-                    // stäng av spelet... ELLER åter till huvudmenyn från "whats your name?"...
-                    return;
+                    Random rnd = new Random();
+                    int fightRnd = rnd.Next(10, 21);
+
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Hero HP: " + hero.Hp + " Monster HP: " + monster.Hp);
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Monster attacks...");
+                    Console.WriteLine(monster.AttackPhrase);
+                    Thread.Sleep(3000);
+                    hero.Hp -= ((monster.Strength * fightRnd) - hero.Defense); 
+                    if(hero.Hp < 0)
+                    {
+                        hero.Hp = 0;
+                    }
+                    Console.WriteLine("Hero HP goes down to " + hero.Hp);
+                    Thread.Sleep(1000);
+
+                    if (hero.Hp <= 0) // om hero dör
+                    {
+                        Thread.Sleep(3000);
+                        Console.WriteLine(hero.DeathPhrase);
+                        Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                        Console.WriteLine("------------------------------------------------GAME OVER!-------------------------------------------------------------");
+                        Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
+                    }
                 }
-            }
-        } // while loop slut
-    } // fight metod
-
-
-
-
-    }// class
-} // namespace
+            } 
+        } 
+    }
+} 
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading; // sleep...
+using System.Threading; // Thread.Sleep();
 
 namespace TheGame_JosefinPersson
 {
@@ -21,8 +21,9 @@ namespace TheGame_JosefinPersson
             Console.WriteLine("");
             Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
 
-            string userInputName = Console.ReadLine();                                                                                                                    // behöver man kolla att det är ett namn...?
-            //skapa spelarobjekt i början av spelet, fråga efter spelarens namn.
+            string userInputName = Console.ReadLine();    
+            
+            //skapa spelarobjekt i början av spelet, fråga efter spelarens namn
             Player hero = new Player();
             hero.Name = userInputName;
             Console.WriteLine("                                           Nice to meet you " + hero.Name + "!");
@@ -33,8 +34,7 @@ namespace TheGame_JosefinPersson
             TheGame game = new TheGame();
 
             //instansiera shop
-            Shop shop = new Shop();
-            // shop.RunShopMenu(hero, game);
+            Shop shop = new Shop();                                                          
 
             // anropa huvudmenyn
             Menu menu = new Menu(); // skapa en meny av Menu-klassen

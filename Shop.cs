@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheGame_JosefinPersson
 {
@@ -16,7 +12,7 @@ namespace TheGame_JosefinPersson
                 Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
                 Console.WriteLine("                                            Welcome to the Shop!");
                 Console.WriteLine("");
-                Console.WriteLine("                                           Your gold: " + hero.Gold);
+                Console.WriteLine("                                              Your gold: " + hero.Gold);
                 Console.WriteLine("1) Show stats");
                 Console.WriteLine("2) Buy 100 Health points. Cost - 200 gold");
                 Console.WriteLine("3) Buy Strength, will add one point. Cost - 300 gold");
@@ -24,16 +20,15 @@ namespace TheGame_JosefinPersson
                 Console.WriteLine("5) Exit the Shop and return to the Main Menu");
                 Console.WriteLine("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~");
 
-                //ta input
                 string userInputShopMenu = Console.ReadLine();
-                                                                                                                                                                                        // Console.Clear;    //  funkar ej...
+                                                                                                                                                                                      
                 int shopInputInt = 0;
                 int.TryParse(userInputShopMenu, out shopInputInt);
 
                 if (shopInputInt > 5 || shopInputInt < 0)
                 {
                     Console.WriteLine("1-5");
-                    Console.ReadKey();                                                                                                                                                      // eller console.readline?
+                    Console.ReadKey();                                                                                                                                                
                 }
 
                 switch (shopInputInt)
@@ -51,7 +46,7 @@ namespace TheGame_JosefinPersson
                     case 3:
                         Console.Clear();
                         Console.WriteLine("You bought extra Strength! You feel your power rise!!!");
-                        hero.Strenght++;
+                        hero.Strength++;
                         hero.Gold -= 300;
                         break;
                     case 4:
